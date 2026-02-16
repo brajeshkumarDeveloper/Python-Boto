@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  deploy:
+  terraform:
     runs-on: ubuntu-latest
 
     env:
