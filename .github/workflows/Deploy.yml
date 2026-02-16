@@ -3,6 +3,7 @@ name: Deploy FastAPI
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
 
