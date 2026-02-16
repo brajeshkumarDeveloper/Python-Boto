@@ -3,10 +3,10 @@ from student import Student
 
 app = FastAPI()
 
-list = [Student(name="Brajesh", age=25, email="brajesh@example.com")
-        ,Student(name="Rajesh", age=35, email="rajesh@example.com"),
-        Student(name="Akshay", age=30, email="akshay@example.com"),
-        Student(name="Hemant", age=12, email="hemant@example.com")]
+list = [Student(id=1, name="Brajesh", age=25, email="brajesh@example.com")
+        ,Student(id=2, name="Rajesh", age=35, email="rajesh@example.com"),
+        Student(id=3, name="Akshay", age=30, email="akshay@example.com"),
+        Student(id=4, name="Hemant", age=12, email="hemant@example.com")]
 
 @app.get("/")
 def read_root():
@@ -21,3 +21,10 @@ def std():
 def student_registration(student: Student):
     list.append(student)
     return {"message": "Student registered successfully"}
+
+@app.get("/students/{student_id}")
+def get_student(student_id: int):
+    if student_id < len(list):
+        return list[student_id]
+    else:
+        return {"message": "Student not found"}
