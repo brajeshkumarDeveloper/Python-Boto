@@ -24,7 +24,7 @@ def student_registration(student: Student):
 
 @app.get("/students/{student_id}")
 def get_student(student_id: int):
-    if student_id < len(list):
-        return list[student_id]
-    else:
-        return {"message": "Student not found"}
+    for student in list:
+        if student.id == student_id:
+            return student
+    return {"message": "Student not found"}
