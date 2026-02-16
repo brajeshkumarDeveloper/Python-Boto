@@ -1,6 +1,6 @@
+from pydantic import BaseModel
 
-
-class Student:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class Student(BaseModel):
+    name: str
+    age: int
+    email: str
